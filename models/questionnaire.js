@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
       notNull: true
     },
     dob_month: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       notNull: true
     },
     dob_day: {
@@ -30,7 +30,9 @@ module.exports = function (sequelize, DataTypes) {
     phone: DataTypes.STRING,
     email: {
       type: DataTypes.STRING,
-      isEmail: true
+      validate: {
+        isEmail: true
+      }
     },
     fav_color: DataTypes.STRING,
     fav_candy: DataTypes.STRING,
@@ -48,7 +50,12 @@ module.exports = function (sequelize, DataTypes) {
     fav_dance: DataTypes.STRING,
     fav_clothes: DataTypes.STRING,
     fav_style: DataTypes.STRING,
-    fav_app: DataTypes.STRING
+    fav_app: DataTypes.STRING,
+    active: {
+      type: DataTypes.STRING,
+      defaultValue: true,
+      required: true
+    }
   });
 
   return Questionnaire;
